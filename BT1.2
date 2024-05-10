@@ -1,0 +1,49 @@
+package com.school.myapplicationltuddd.Tuan1;
+
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.school.myapplicationltuddd.R;
+
+public class Tuan11MainActivity extends AppCompatActivity {
+    // khai bao cac control
+    EditText txt1, txt2;
+    Button btn1;
+    TextView tv1;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tuan11_main);
+        // Anh xa cac control
+        txt1 = findViewById(R.id.demo11txt1);
+        txt2 = findViewById(R.id.demo11txt2);
+        btn1 = findViewById(R.id.demo11btn1);
+        tv1 = findViewById(R.id.demo11tv1);
+        // Xử lí sự kiện
+        btn1.setOnClickListener(v1 -> {
+            //Gọi hàm tính tổng
+            Tuan11MainActivity.this.tinhTong();
+        });
+    }
+    //Định nghĩa hàm tính tổng
+    private void tinhTong() {
+        //Lấy dữ liệu nhập vào từ txt1
+        String str1 = txt1.getText().toString();
+        //Chuyển dữ liệu sang số
+        Float so1 = Float.parseFloat(str1);
+        //Lấy dữ liệu nhập vào từ txt2
+        String str2 = txt2.getText().toString();
+        //Chuyển dữ liệu sang số
+        Float so2 = Float.parseFloat(str2);
+        //Tính tổng
+        float tong = so1 + so2;
+        // in kết quả ra màn hình
+        tv1.setText(String.valueOf(tong));
+    }
+}
